@@ -3,6 +3,18 @@
 A modern full-stack **bookstore web application** with an integrated **AI-powered recommendation system** to enhance the user shopping experience.
 
 ---
+![image](https://github.com/user-attachments/assets/4120cf37-aa54-4d0f-b822-eaa21e71bafa)
+![backendIMG](https://github.com/user-attachments/assets/f5d66513-ad62-4456-8f37-897774a2f0f4)
+![Screenshot 2025-07-04 011526](https://github.com/user-attachments/assets/5c5574b4-a002-4bc0-a702-6e076936b2a6)
+![Screenshot 2025-07-04 011601](https://github.com/user-attachments/assets/b62282f8-b20e-4f40-9655-1f4e6f876f2b)
+![Screenshot 2025-07-04 011713](https://github.com/user-attachments/assets/9239ada8-a7ac-47cf-b28a-c46bedde57dd)
+![Screenshot 2025-07-04 011725](https://github.com/user-attachments/assets/081c3d82-47d9-40b0-b1a0-b44f653c6103)
+![Screenshot 2025-07-04 011731](https://github.com/user-attachments/assets/0104e536-15b3-4593-9962-17bb2de1e678)
+![Screenshot 2025-07-04 011746](https://github.com/user-attachments/assets/110e2034-357b-4fe5-848e-2e9cd83af361)
+![Screenshot 2025-07-04 011752](https://github.com/user-attachments/assets/ec462036-1159-4e52-8a87-dd47cdda7a2a)
+![Screenshot 2025-07-04 011759](https://github.com/user-attachments/assets/7ad682a8-6656-484c-9a57-33c18dd2c7f8)
+
+
 
 ## 🛠️ Tech Stack
 
@@ -80,7 +92,6 @@ uvicorn main:app --reload
 
 🧪 Testing
 Backend: xUnit for .NET
-Frontend: Jest / React Testing Library (optional)
 API: Postman collections provided
 
 📊 Future Improvements
