@@ -1,0 +1,174 @@
+# =========================================
+# 🌐 NEXT.JS / NODE.JS
+# =========================================
+
+# Dependencies
+/frontend/node_modules
+/frontend/.pnp
+/frontend/.pnp.js
+
+# Testing
+/frontend/coverage
+
+# Build output
+/frontend/.next/
+/frontend/out/
+frontend/build
+
+# Logs & debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment
+frontend/.env*.local
+frontend/.env
+
+# Vercel
+frontend/.vercel
+
+# TypeScript
+frontend/*.tsbuildinfo
+frontend/next-env.d.ts
+
+# Misc
+.DS_Store
+*.pem
+*.swp
+*.swo
+
+# Data (nếu có dùng thư mục chứa dữ liệu riêng)
+/data/
+
+# =========================================
+# 🧠 FASTAPI / PYTHON
+# =========================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+build/
+dist/
+.eggs/
+*.egg-info/
+*.egg
+MANIFEST
+
+# PyInstaller
+*.spec
+
+# Logs
+*.log
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Testing & coverage
+htmlcov/
+.tox/
+.nox/
+.coverage*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.pytest_cache/
+.hypothesis/
+
+# Virtual env
+.env
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter & IPython
+.ipynb_checkpoints
+profile_default/
+ipython_config.py
+
+# IDE
+.vscode/
+.ropeproject
+.spyderproject
+.spyproject
+
+# Misc tools
+.mypy_cache/
+.dmypy.json
+.pyre/
+.pytype/
+.pdm.toml
+__pypackages__/
+
+# Flask
+instance/
+.webassets-cache
+
+# Django
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# MkDocs
+docs/site/
+site/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath
+*.sage.py
+
+# =========================================
+# 🧩 .NET / ASP.NET CORE
+# =========================================
+
+# Build output
+**/bin/
+**/obj/
+*.dll
+*.exe
+*.pdb
+*.dbmdl
+# appsettings
+**/appsettings.Development.json
+**/appsettings.Production.json
+**/appsettings.Local.json
+
+
+# User-specific files
+*.user
+*.suo
+
+# Visual Studio
+.vs/
+
+# VS Code
+.vscode/
+
+# Others
+*.cache
+
+# =========================================
+# 🧼 GENERAL (cross-platform)
+# =========================================
+
+*.tmp
+*.bak
+*.swp
+*.swo
+*.log
+.DS_Store
+Thumbs.db
