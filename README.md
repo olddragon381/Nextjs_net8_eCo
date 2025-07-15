@@ -29,6 +29,7 @@ A modern full-stack **bookstore web application** with an integrated **AI-powere
 - Clean Architecture 
 - MongoDB (NoSQL database)
 - JWT Authentication & Role-based Authorization
+- Redis cache
 
 ### ✅ AI Recommendation System
 - Python + FastAPI
@@ -51,12 +52,19 @@ A modern full-stack **bookstore web application** with an integrated **AI-powere
 - Register / Login (JWT-based)
 - Admin roles & permissions
 - View order history
+- Send OTP email
+- Verify OTP
+### 👤 Admin System
+- Add data into DB
+- Change role user
+- Delete data 
 
 ### 🧠 Recommendation System
 - Recommend similar books on product page
 - Recently viewed & trending books
 - Personalized suggestions per user
 - Fallback to popular/genre-based books
+- Use Redis 
 
 ---
 
