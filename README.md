@@ -13,6 +13,7 @@ A modern full-stack **bookstore web application** with an integrated **AI-powere
 ![Screenshot 2025-07-04 011746](https://github.com/user-attachments/assets/110e2034-357b-4fe5-848e-2e9cd83af361)
 ![Screenshot 2025-07-04 011752](https://github.com/user-attachments/assets/ec462036-1159-4e52-8a87-dd47cdda7a2a)
 ![Screenshot 2025-07-04 011759](https://github.com/user-attachments/assets/7ad682a8-6656-484c-9a57-33c18dd2c7f8)
+![Otp](https://github.com/user-attachments/assets/376b1a4c-3c37-4d59-9e6d-ae4e7f4d6b75)
 
 
 
