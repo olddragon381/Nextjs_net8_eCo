@@ -100,6 +100,7 @@ async def upload_csv(file: UploadFile = File(...)):
         start_time = datetime.utcnow()
         df["createdAt"] = [start_time + timedelta(milliseconds=i*200) for i in range(len(df))]
         df.drop(columns=['content'], inplace=True)
+        df.drop(columns=['product_id'], inplace=True)
         # Insert vào MongoDB
         records = df.to_dict(orient="records")
         if records:

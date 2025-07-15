@@ -14,5 +14,8 @@ namespace BookstoreApp.Application.Interfaces
 
         Task ChangePassword(string userid,ChangePasswordDTO changePassword);
 
+        Task ForgotPasswordAsync(string email);
+        Task<bool> VeryfyOTPAsync(VerifyotpDTO dto);
+        Task ResetPasswordAsync(ResetPasswordDTO dto);
     }
 }

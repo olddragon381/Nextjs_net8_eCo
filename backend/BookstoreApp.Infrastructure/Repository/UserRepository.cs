@@ -1,7 +1,7 @@
 ﻿using BookstoreApp.Application.DTOs;
 using BookstoreApp.Application.Interfaces.Repository;
 using BookstoreApp.Domain.Entities;
-
+using BookstoreApp.Domain.Enums;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 using System;
@@ -173,6 +173,35 @@ namespace BookstoreApp.Infrastructure.Repository
         public async Task<bool> CheckUserInDatabaseAsync(string userId)
         {
             return await _userCollection.Find(u => u.Id == userId).AnyAsync();
+        }
+
+        public async Task<(List<User> users, int total)> GetUserPagingAsync(int page, int pageSize)
+        {
+            var total = (int)await _userCollection.CountDocumentsAsync(FilterDefinition<User>.Empty);
+
+            var users = await _userCollection.AsQueryable()
+                                             .Skip((page - 1) * pageSize)
+                                             .Take(pageSize)
+                                             .ToListAsync();
+
+            return (users, total);
+        }
+
+        public async Task<int> GetTotalUsersAsync()
+        {
+           return (int)await _userCollection.CountDocumentsAsync(FilterDefinition<User>.Empty);
+        }
+
+        public async Task UpdateUserRoleAsync(string userId, Role newRole)
+        {
+            var user = await _userCollection.Find(u => u.Id == userId).FirstOrDefaultAsync();
+            if (user == null)
+            {
+                throw new Exception("Người dùng không tồn tại.");
+            }
+
+            var update = Builders<User>.Update.Set(u => u.UserRole, newRole);
+            await _userCollection.UpdateOneAsync(u => u.Id == userId, update);
         }
     }
 }

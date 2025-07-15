@@ -11,6 +11,7 @@ namespace BookstoreApp.Application.DTOs
         public required string UserId { get; set; }
         public required string Fullname { get; set; }
         public required string Email { get; set; }
+        public required string UserRole { get; set; }
         public required string Token { get; set; }
         public DateTime Expiration { get; set; }
     }

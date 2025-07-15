@@ -1,5 +1,7 @@
 ﻿using BookstoreApp.Application.DTOs;
 using BookstoreApp.Application.Interfaces;
+using BookstoreApp.Application.Interfaces.Repository;
+using BookstoreApp.Domain.Entities;
 using BookstoreApp.Domain.Enums;
 using Microsoft.Extensions.Logging;
 using System;
@@ -16,12 +18,14 @@ namespace BookstoreApp.Application.UseCases.Auth
         private readonly IJwtProvider _jwtProvider;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IProtectAuth _IProtectAuth;
-        public AuthService(IUnitOfWork unitOfWork, IJwtProvider jwtProvider, IProtectAuth protectAuth, ILogger<AuthService> logger)
+        private readonly IOTPService _otpService;
+        public AuthService(IUnitOfWork unitOfWork, IJwtProvider jwtProvider, IProtectAuth protectAuth, ILogger<AuthService> logger, IOTPService otpService)
         {
             _unitOfWork = unitOfWork;
             _jwtProvider = jwtProvider;
             _IProtectAuth = protectAuth;
             _logger = logger;
+            _otpService = otpService;
         }
 
         public async Task ChangePassword(string userid, ChangePasswordDTO changePassword)
@@ -42,6 +46,15 @@ namespace BookstoreApp.Application.UseCases.Auth
 
             await _unitOfWork.Users.ChangePasswordAsync(userid, hashPassword, salt);
             
+        }
+
+        public async Task ForgotPasswordAsync(string email)
+        {
+            var user = await _unitOfWork.Users.GetByEmailAsync(email);
+            if (user == null)
+               throw new ValidationException("Email không tồn tại");    
+            await _otpService.SendOtpAsync(user.Id, user.Email);
+
         }
 
         public async Task<AuthResponeDTO> LoginAsync(LoginDTO loginDTO)
@@ -68,6 +81,7 @@ namespace BookstoreApp.Application.UseCases.Auth
                 UserId = user.Id,
                 Fullname = user.FullName,
                 Email = user.Email,
+                UserRole = user.UserRole.ToString(),
                 Expiration = DateTime.UtcNow.AddHours(1),
                 Token = token
             };
@@ -110,11 +124,62 @@ namespace BookstoreApp.Application.UseCases.Auth
                 UserId = user.Id,
                 Fullname = user.FullName,
                 Email = user.Email,
+                UserRole = user.UserRole.ToString(),    
                 Expiration = DateTime.UtcNow.AddHours(1),
                 Token = token
             };
         }
 
-        
+        public async Task ResetPasswordAsync(ResetPasswordDTO dto)
+        {
+
+            var user = await _unitOfWork.Users.GetByEmailAsync(dto.Email);
+            if (user == null)
+                throw new Exception("Không tìm thấy người dùng");
+            _ = _otpService.ResetPasswordAsync(user.Id, dto.Email)
+           .ContinueWith(task =>
+           {
+               if (task.IsFaulted)
+               {
+                   _logger.LogError(task.Exception, "Error Reset Password");
+                   throw new ValidationException("Reset mat khau sai");
+               }
+               return false;
+           });
+
+
+
+
+            if (string.IsNullOrWhiteSpace(dto.NewPassword))
+                throw new ValidationException("Mật khẩu mới không được để trống");
+            var salt = _IProtectAuth.generateSalth();
+            var hashPassword = _IProtectAuth.hashPassword(dto.NewPassword, salt);
+
+
+            await _unitOfWork.Users.ChangePasswordAsync(user.Id, hashPassword, salt);
+        }
+
+        public async Task<bool> VeryfyOTPAsync(VerifyotpDTO dto)
+        {
+            var userid = await _unitOfWork.Users.GetByEmailAsync(dto.Email);
+            if (userid == null)
+                throw new ValidationException("Email không tồn tại");
+            if (string.IsNullOrWhiteSpace(dto.OTP))
+                throw new ValidationException("OTP không được để trống");
+
+            _ = _otpService.VerifyOtpAsync(userid.Id, dto.OTP, dto.Email)
+                .ContinueWith(task =>
+                {
+                    if (task.IsFaulted)
+                    {
+                        _logger.LogError(task.Exception, "Error verifying OTP");
+                        throw new ValidationException("OTP không hợp lệ hoặc đã hết hạn");
+                    }
+                    return false;
+                });
+
+     
+            return true;
+        }
     }
 }

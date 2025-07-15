@@ -78,7 +78,11 @@ namespace BookstoreApp.Infrastructure.Repository
                 Image = category.Image
             };
         }
-        
+
+        public async Task<int> GetCountCategory()
+        {
+            return (int)await _categoryCollection.CountDocumentsAsync(FilterDefinition<Category>.Empty);
+        }
 
         public async Task UpdateCategoryAsync(int categoryId, string newCategoryName, string? newDescription)
         {

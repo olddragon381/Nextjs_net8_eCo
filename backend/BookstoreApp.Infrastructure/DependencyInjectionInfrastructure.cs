@@ -51,7 +51,7 @@ namespace BookstoreApp.Infrastructure
             services.AddScoped<IDiscountRepository, DiscountRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IRatingRepository, RatingRepository>();
-
+            services.AddSingleton<IRedisService, RedisService>();
             return services;
         }
     }

@@ -1,5 +1,6 @@
 ﻿using BookstoreApp.Application.DTOs;
 using BookstoreApp.Domain.Entities;
+using BookstoreApp.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,10 @@ namespace BookstoreApp.Application.Interfaces.Repository
 {
     public interface IUserRepository
     {
-     
+
+        Task<(List<User> users, int total)> GetUserPagingAsync(int page, int pageSize);
+        Task<int> GetTotalUsersAsync();
+        Task UpdateUserRoleAsync(string userId, Role newRole);
 
         Task<bool> CheckUserInDatabaseAsync(string userId);
 

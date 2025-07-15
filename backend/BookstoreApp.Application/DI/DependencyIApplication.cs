@@ -1,9 +1,11 @@
 ﻿using BookstoreApp.Application.Interfaces;
+using BookstoreApp.Application.UseCases.Admin;
 using BookstoreApp.Application.UseCases.Auth;
 using BookstoreApp.Application.UseCases.Book;
 using BookstoreApp.Application.UseCases.Cart;
 using BookstoreApp.Application.UseCases.Category;
 using BookstoreApp.Application.UseCases.Comment;
+using BookstoreApp.Application.UseCases.Email;
 using BookstoreApp.Application.UseCases.Order;
 using BookstoreApp.Application.UseCases.User;
 using Microsoft.Extensions.DependencyInjection;
@@ -31,6 +33,11 @@ namespace BookstoreApp.Application.DI
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IRecommendationSystem, RecommendationService>();
             services.AddScoped<IRatingService,RatingService>();
+            services.AddScoped<IAdminServicecs, AdminService>();
+
+            services.AddScoped<IEmailService, EmailService>();
+            services.AddScoped<IOTPService, OTPService>();
+
             return services;
         }
     }

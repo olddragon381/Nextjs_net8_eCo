@@ -1,4 +1,5 @@
-﻿using BookstoreApp.Domain.Entities;
+﻿using BookstoreApp.Application.DTOs;
+using BookstoreApp.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,14 +17,14 @@ namespace BookstoreApp.Application.Interfaces.Repository
         Task<List<Book>> SameBookByGenreAsync(string bookid, int topN);
         Task<List<Book>> GetByCategoryIdAsync(int categoryId);
         Task<List<Book>> SearchAsync(string searchTerm);
-        Task CreateAsync(Book book);
-        Task UpdateAsync(Book book);
-        Task DeleteAsync(int id);
+        Task CreateAsync(CreateBookDTO book);
+        Task UpdateAsync(string bookid ,UpdateBookDTO book);
+        Task DeleteAsync(string id);
         Task<bool> ExistsAsync(int id);
         Task<List<Book>> GetProductForHeroAsync();
         Task<(List<Book>, int total)> GetBooksPagingAsync(int page, int pageSize,List<string>? genres);
 
         Task<bool> CheckBookInDatabaseAsync(string bookid);
-
-    }
+        Task<int> GetTotalBooksCountAsync();
+    }   
 }

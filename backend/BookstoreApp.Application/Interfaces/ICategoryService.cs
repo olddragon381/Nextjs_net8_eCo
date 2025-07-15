@@ -12,6 +12,8 @@ namespace BookstoreApp.Application.Interfaces
     {
         public Task<List<GetNameCategoryDTO>> GetAllCategoriesAsync();
         public Task<List<GetNameCategoryDTO>> Get7CategoriesAsync();
+
+        public Task<int> GetCategoryCount();
         public Task AddCategoryAsync(string categoryName, string? Description, string? Image);
         public Task UpdateCategoryAsync(int categoryId, string newCategoryName, string? newDescription);
         public Task DeleteCategoryAsync(int categoryId);

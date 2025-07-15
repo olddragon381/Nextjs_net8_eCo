@@ -1,6 +1,8 @@
 ﻿using BookstoreApp.Application.Interfaces.Repository;
 using BookstoreApp.Domain.Entities;
+using BookstoreApp.Domain.Enums;
 using MongoDB.Driver;
+using MongoDB.Driver.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,8 +38,7 @@ namespace BookstoreApp.Infrastructure.Repository
             return _orderCollection.DeleteOneAsync(o => o.Id == orderId);
         }
 
-        public async Task<List<Order>> GetAllOrdersAsync() =>  await _orderCollection.Find(_ => true).ToListAsync();
-        
+
 
         public async Task<Order> GetOrderByIdAsync(string orderId)
         {
@@ -50,6 +51,19 @@ namespace BookstoreApp.Infrastructure.Repository
             return result;
         }
 
+        public async Task<(List<Order> orders, int total)> GetOrderPagingAsync(int page, int pageSize)
+        {
+            var total = (int)await _orderCollection.CountDocumentsAsync(FilterDefinition<Order>.Empty);
+
+            var orders = await _orderCollection.AsQueryable()
+                                             .Skip((page - 1) * pageSize)
+                                             .Take(pageSize)
+                                             .ToListAsync();
+
+            return (orders, total);
+
+        }
+
         public Task<List<Order>> GetOrdersByUserIdAsync(string userId)
         {
 
@@ -60,6 +74,12 @@ namespace BookstoreApp.Infrastructure.Repository
             }
             return _orderCollection.Find(o => o.UserId == userId).ToListAsync();
 
+        }
+
+        public async Task<int> GetTotalOrdersCountAsync()
+        {
+
+            return (int)await _orderCollection.CountDocumentsAsync(FilterDefinition<Order>.Empty);
         }
 
         public Task<bool> OrderExistsAsync(string orderId)
@@ -85,6 +105,19 @@ namespace BookstoreApp.Infrastructure.Repository
 
                 .Set(o => o.PaymentMethod, order.PaymentMethod);
             var updateResult = await _orderCollection.UpdateOneAsync(i => i.Id == order.Id, updateDefinition);
+        }
+
+        public async Task UpdateOrderStatusAsync(string orderId, OrderStatus newStatus)
+        {
+            var findorder = await GetOrderByIdAsync(orderId); // Ensure the order exists before updating
+            if (findorder == null)
+            {
+                throw new KeyNotFoundException($"Order with ID {orderId} not found.");
+            }
+            var updateDefinition = Builders<Order>.Update
+                .Set(o => o.Status, newStatus);
+
+            var updateResult = await _orderCollection.UpdateOneAsync(i => i.Id == orderId, updateDefinition);
         }
     }
 }

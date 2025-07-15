@@ -3,6 +3,7 @@ using BookstoreApp.Application.Interfaces;
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
@@ -92,6 +93,34 @@ namespace BookstoreApp.API.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
+        [AllowAnonymous]
+        [HttpPost("forgot-password")]
+        public async Task<IActionResult> ForgotPassword([FromBody] ForgetPasswordDTO dto)
+        {
+            await _authService.ForgotPasswordAsync(dto.Email);
+            
+            return Ok("OTP đã được gửi đến email");
+        }
+        [AllowAnonymous]
+        [HttpPost("verify-otp")]
+        public async Task<IActionResult> VertifyOTP([FromBody] VerifyotpDTO dto)
+        {
+           var check = await _authService.VeryfyOTPAsync(dto);
+            if(!check)
+            {
+                return BadRequest("Mã OTP không hợp lệ hoặc đã hết hạn");
+            }
+            return Ok("OTP đã được gửi đến email");
+        }
+
+        [AllowAnonymous]
+        [HttpPost("reset-password")]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDTO dto)
+        {
+            await _authService.ResetPasswordAsync(dto);
+            return Ok("Mật khẩu đã được thay đổi thành công");
+        }
+       
 
         [HttpPost("logout")]
         public IActionResult Logout()

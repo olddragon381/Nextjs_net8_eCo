@@ -26,15 +26,6 @@ namespace BookstoreApp.API.Controllers
             var result = await _categoryService.GetAllCategoriesAsync();
             return Ok(result);
         }
-        [HttpPost("addcategory")]
-        public async Task<IActionResult> AddCategoryAsync([FromBody] string categoryName, string? description, string? image)
-        {
-            if (string.IsNullOrWhiteSpace(categoryName))
-            {
-                return BadRequest("Category name cannot be empty.");
-            }
-            await _categoryService.AddCategoryAsync(categoryName, description, image);
-            return Ok("Category added successfully.");
-        }
+        
     }
 }
