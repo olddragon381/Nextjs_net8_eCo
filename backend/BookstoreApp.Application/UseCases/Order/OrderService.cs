@@ -1,6 +1,7 @@
 ﻿using BookstoreApp.Application.DTOs;
 using BookstoreApp.Application.Interfaces;
 using BookstoreApp.Application.Interfaces.Repository;
+using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -19,7 +20,7 @@ namespace BookstoreApp.Application.UseCases.Order
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        public async Task CreateOrderAsync(OrderRequestDTO order)
+        public async Task<OrderCreateReponseDTO> CreateOrderAsync(OrderRequestDTO order)
 
         {
            
@@ -75,6 +76,8 @@ namespace BookstoreApp.Application.UseCases.Order
                 Status = order.Status,
                 CreatedAt = DateTime.UtcNow
             };
+            var generatedOrderId = ObjectId.GenerateNewId().ToString();
+            data.Id = generatedOrderId;
 
             var updateprofile = new UpdateUserProfileDTO
             {
@@ -89,6 +92,13 @@ namespace BookstoreApp.Application.UseCases.Order
 
 
             await _unitOfWork.Order.CreateAsync(data);  
+
+            return new OrderCreateReponseDTO
+            {
+                OrderId = data.Id,
+                TotalAmount = data.TotalAmount,
+
+            };
         }
 
         public Task DeleteOrderAsync(string orderId) => _unitOfWork.Order.DeleteOrderAsync(orderId);

@@ -119,5 +119,15 @@ namespace BookstoreApp.Infrastructure.Repository
 
             var updateResult = await _orderCollection.UpdateOneAsync(i => i.Id == orderId, updateDefinition);
         }
+
+        public async Task UpdatePaymentStatusAsync(string orderId, string status)
+        {
+            var filter = Builders<Order>.Filter.Eq(x => x.Id, orderId);
+            var update = Builders<Order>.Update
+                .Set(x => x.PaymentMethod, status)
+                .Set(x => x.CreatedAt, DateTime.UtcNow);
+
+            await _orderCollection.UpdateOneAsync(filter, update);
+        }
     }
 }

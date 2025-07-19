@@ -1,4 +1,5 @@
-﻿using BookstoreApp.Domain.Entities;
+﻿using BookstoreApp.Application.DTOs;
+using BookstoreApp.Domain.Entities;
 using BookstoreApp.Domain.Enums;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace BookstoreApp.Application.Interfaces.Repository
         Task<List<Order>> GetOrdersByUserIdAsync(string userId);
 
         Task UpdateOrderStatusAsync(string orderId, OrderStatus newStatus);
+        Task UpdatePaymentStatusAsync(string orderId, string status);
         Task<(List<Order> orders, int total)> GetOrderPagingAsync(int page, int pageSize);
         Task UpdateOrderAsync(Order order);
         Task DeleteOrderAsync(string orderId);

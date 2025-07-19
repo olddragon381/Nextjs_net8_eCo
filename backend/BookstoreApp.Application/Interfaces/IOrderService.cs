@@ -9,7 +9,7 @@ namespace BookstoreApp.Application.Interfaces
 {
     public interface IOrderService
     {
-        Task CreateOrderAsync(OrderRequestDTO order);
+        Task<OrderCreateReponseDTO> CreateOrderAsync(OrderRequestDTO order);
         Task<OrderRequestDTO> GetOrderByIdAsync(string orderId);
         Task<List<OrderRequestDTO>> GetAllOrdersAsync();
         Task<List<GetOrderDTO>> GetOrdersByUserIdAsync(string userId);

@@ -2,7 +2,7 @@
 using BookstoreApp.Application.Interfaces.Repository;
 using BookstoreApp.Application.Setting;
 using BookstoreApp.Infrastructure.Cof;
-
+using BookstoreApp.Infrastructure.Payment.Vnpay;
 using BookstoreApp.Infrastructure.Repository;
 using BookstoreApp.Infrastructure.Repository.UnitOfWork;
 using BookstoreApp.Infrastructure.Service;
@@ -52,6 +52,7 @@ namespace BookstoreApp.Infrastructure
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IRatingRepository, RatingRepository>();
             services.AddSingleton<IRedisService, RedisService>();
+           
             return services;
         }
     }

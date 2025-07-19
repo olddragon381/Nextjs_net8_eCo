@@ -8,7 +8,8 @@ using BookstoreApp.Infrastructure;
 using BookstoreApp.Application.Interfaces;
 using BookstoreApp.Infrastructure.Repository.UnitOfWork;
 using BookstoreApp.Application.UseCases.Book;
-using BookstoreApp.Application.Setting; // Ensure this using directive is added for AddSwaggerGen extension  
+using BookstoreApp.Application.Setting;
+using BookstoreApp.Infrastructure.Payment.Vnpay; // Ensure this using directive is added for AddSwaggerGen extension  
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -75,6 +76,11 @@ builder.Services.AddHttpClient<RecommendationService>();
 
 
 builder.Services.AddAuthorization();
+builder.Services.AddAuthorization();
+builder.Services.AddScoped<IVnPayService, VnPayService>();
+
+
+
 
 var app = builder.Build();
 

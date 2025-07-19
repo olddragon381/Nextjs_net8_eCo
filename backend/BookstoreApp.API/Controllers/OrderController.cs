@@ -29,8 +29,8 @@ namespace BookstoreApp.API.Controllers
             }
             try
             {
-                await _orderService.CreateOrderAsync(order);
-                return Ok("Order created successfully.");
+               var resutl=  await _orderService.CreateOrderAsync(order);
+                return Ok(resutl);
             }
             catch (KeyNotFoundException ex)
             {
