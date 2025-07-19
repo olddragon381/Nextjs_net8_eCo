@@ -15,6 +15,7 @@ A modern full-stack **bookstore web application** with an integrated **AI-powere
 ![Screenshot 2025-07-04 011759](https://github.com/user-attachments/assets/7ad682a8-6656-484c-9a57-33c18dd2c7f8)
 ![Otp](https://github.com/user-attachments/assets/376b1a4c-3c37-4d59-9e6d-ae4e7f4d6b75)
 
+<img width="857" height="842" alt="image" src="https://github.com/user-attachments/assets/0978301e-fea4-422f-afb8-5bd0623da73b" />
 
 
 ## 🛠️ Tech Stack
@@ -48,6 +49,7 @@ A modern full-stack **bookstore web application** with an integrated **AI-powere
 - 📝 Ratings & comments
 - 📚 Book details with author, genre, etc.
 - 💳 Checkout process
+- 💳 Checkout by VNPay
 
 ### 👤 User System
 - Register / Login (JWT-based)
