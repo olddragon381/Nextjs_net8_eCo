@@ -141,6 +141,4 @@ API: Postman collections provided
 <!-- LICENSE -->
 ## License
 
-Distributed under the Unlicense License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+[MIT](https://choosealicense.com/licenses/mit/)
