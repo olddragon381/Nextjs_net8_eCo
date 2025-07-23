@@ -12,11 +12,13 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="# 1. Clone the Repository">1. Clone the Repository</a></li>
-        <li><a href="# 2. Frontend Setup">2. Frontend Setup</a></li>
+        <li>1. Clone the Repository</li>
+        <li>2. Frontend Setup</li>
+        <li>3. Backend Setup (.NET)<</li>
+        <li>4. Recommendation Service (Python)</li> 
       </ul>
     </li>
-    <li><a href="#eature">Feature</a></li>
+    <li><a href="#feature">Feature</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#license">License</a></li>
   </ol>
@@ -131,6 +133,7 @@ API: Postman collections provided
 ## Roadmap
 📊 Future Improvements
 ✅ Real-time collaborative filtering
+📊 Add Collaborative Filtering for user 
 ✅ Social features (follow friends)
 🔄 Improve BERT-based understanding
 📈 Analytics dashboard for admin
