@@ -1,8 +1,36 @@
 # 📚 Bookstore Platform with Recommender System
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
 
-A modern full-stack **bookstore web application** with an integrated **AI-powered recommendation system** to enhance the user shopping experience.
+https://github.com/olddragon381/Nextjs_net8_eCo
 
 ---
+<!-- ABOUT THE PROJECT -->
+## About The Project
+A modern full-stack **bookstore web application** with an integrated **AI-powered recommendation system** to enhance the user shopping experience.
 ![image](https://github.com/user-attachments/assets/4120cf37-aa54-4d0f-b822-eaa21e71bafa)
 ![backendIMG](https://github.com/user-attachments/assets/f5d66513-ad62-4456-8f37-897774a2f0f4)
 ![Screenshot 2025-07-04 011526](https://github.com/user-attachments/assets/5c5574b4-a002-4bc0-a702-6e076936b2a6)
@@ -14,7 +42,6 @@ A modern full-stack **bookstore web application** with an integrated **AI-powere
 ![Screenshot 2025-07-04 011752](https://github.com/user-attachments/assets/ec462036-1159-4e52-8a87-dd47cdda7a2a)
 ![Screenshot 2025-07-04 011759](https://github.com/user-attachments/assets/7ad682a8-6656-484c-9a57-33c18dd2c7f8)
 ![Otp](https://github.com/user-attachments/assets/376b1a4c-3c37-4d59-9e6d-ae4e7f4d6b75)
-
 <img width="857" height="842" alt="image" src="https://github.com/user-attachments/assets/0978301e-fea4-422f-afb8-5bd0623da73b" />
 
 
