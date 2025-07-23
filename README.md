@@ -45,8 +45,7 @@ A modern full-stack **bookstore web application** with an integrated **AI-powere
 <img width="857" height="842" alt="image" src="https://github.com/user-attachments/assets/0978301e-fea4-422f-afb8-5bd0623da73b" />
 
 
-## 🛠️ Tech Stack
-
+### Built With
 ### ✅ Frontend
 - [Next.js](https://nextjs.org/) with JavaScript
 - Redux Toolkit for state management
@@ -67,6 +66,35 @@ A modern full-stack **bookstore web application** with an integrated **AI-powere
   - 
 - REST API between .NET backend and Python service
 ---
+<!-- GETTING STARTED -->
+## Getting Started
+### 1. Clone the Repository
+```bash
+git clone https://github.com/yourname/bookstore-app.git
+cd bookstore-app
+```
+### 2. Frontend Setup
+```bash
+cd frontend
+npm install
+npm run dev
+```
+### 3. Backend Setup (.NET)
+```bash
+cd frontend
+npm install
+npm run dev
+```
+### 4. Recommendation Service (Python)
+```bash
+cd recommender
+pip install -r requirements.txt
+uvicorn main:app --reload
+```
+
+🧪 Testing
+Backend: xUnit for .NET
+API: Postman collections provided
 
 ## ⚙️ Features
 
@@ -102,35 +130,6 @@ A modern full-stack **bookstore web application** with an integrated **AI-powere
 
 ![image](https://github.com/user-attachments/assets/a9a29f4f-70e2-4c57-bfff-8cb5342e35cd)
 
-## 🚀 Getting Started
-
-### 1. Clone the Repository
-```bash
-git clone https://github.com/yourname/bookstore-app.git
-cd bookstore-app
-```
-### 2. Frontend Setup
-```bash
-cd frontend
-npm install
-npm run dev
-```
-### 3. Backend Setup (.NET)
-```bash
-cd frontend
-npm install
-npm run dev
-```
-### 4. Recommendation Service (Python)
-```bash
-cd recommender
-pip install -r requirements.txt
-uvicorn main:app --reload
-```
-
-🧪 Testing
-Backend: xUnit for .NET
-API: Postman collections provided
 
 📊 Future Improvements
 ✅ Real-time collaborative filtering
