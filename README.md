@@ -90,14 +90,12 @@ cd recommender
 pip install -r requirements.txt
 uvicorn main:app --reload
 ```
-
-🧪 Testing
+### 5. 🧪 Testing
 Backend: xUnit for .NET
 API: Postman collections provided
 
 <!-- Features-->
 ## Features
-
 ### 📦 Bookstore Functionality
 - 🔍 Browse/search books with filters
 - 🛒 Add to cart, wishlist
