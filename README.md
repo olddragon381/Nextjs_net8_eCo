@@ -94,8 +94,8 @@ uvicorn main:app --reload
 Backend: xUnit for .NET
 API: Postman collections provided
 
-<!-- Features-->
-## Features
+<!-- Feature-->
+## Feature
 ### 📦 Bookstore Functionality
 - 🔍 Browse/search books with filters
 - 🛒 Add to cart, wishlist
