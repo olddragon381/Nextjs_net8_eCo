@@ -12,16 +12,13 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="# 1. Clone the Repository">1. Clone the Repository</a></li>
+        <li><a href="# 2. Frontend Setup">2. Frontend Setup</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
+    <li><a href="#eature">Feature</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -130,10 +127,18 @@ API: Postman collections provided
 
 ![image](https://github.com/user-attachments/assets/a9a29f4f-70e2-4c57-bfff-8cb5342e35cd)
 
-
+<!-- ROADMAP -->
+## Roadmap
 📊 Future Improvements
 ✅ Real-time collaborative filtering
 ✅ Social features (follow friends)
 🔄 Improve BERT-based understanding
 📈 Analytics dashboard for admin
 📬 Email notifications
+
+<!-- LICENSE -->
+## License
+
+Distributed under the Unlicense License. See `LICENSE.txt` for more information.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
