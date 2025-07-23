@@ -96,7 +96,7 @@ Backend: xUnit for .NET
 API: Postman collections provided
 
 <!-- Features-->
-## ⚙️ Features
+## Features
 
 ### 📦 Bookstore Functionality
 - 🔍 Browse/search books with filters
