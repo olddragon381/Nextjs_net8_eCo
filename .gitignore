@@ -3,17 +3,17 @@
 # =========================================
 
 # Dependencies
-/frontend/node_modules
-/frontend/.pnp
-/frontend/.pnp.js
+*/frontend/node_modules
+*/frontend/.pnp
+*/frontend/.pnp.js
 
 # Testing
-/frontend/coverage
+*/frontend/coverage
 
 # Build output
-/frontend/.next/
-/frontend/out/
-frontend/build
+*/frontend/.next/
+*/frontend/out/
+*/frontend/build
 
 # Logs & debug
 npm-debug.log*
