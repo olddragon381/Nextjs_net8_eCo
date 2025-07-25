@@ -1,7 +1,12 @@
 # =========================================
 # 🌐 NEXT.JS / NODE.JS
 # =========================================
-
+/frontend/node_modules
+/frontend/.next
+/frontend/.env*
+/frontend/out
+/frontend/build
+/frontend/.vercel
 # Dependencies
 node_modules
 .pnp
@@ -21,15 +26,15 @@ yarn-debug.log*
 yarn-error.log*
 
 # Environment
-frontend/.env*.local
-frontend/.env
+/frontend/.env*.local
+/frontend/.env
 
 # Vercel
-frontend/.vercel
+/frontend/.vercel
 
 # TypeScript
-frontend/*.tsbuildinfo
-frontend/next-env.d.ts
+/frontend/*.tsbuildinfo
+/frontend/next-env.d.ts
 
 # Misc
 .DS_Store
